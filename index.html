@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>पुलिस शिकायत पत्र | Police Complaint Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', 'Noto Sans Devanagari', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e74c3c;
+        }
+        
+        h1 {
+            color: #e74c3c;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .form-section {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        
+        .checkbox-item input {
+            width: auto;
+            margin-right: 5px;
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        #generateBtn {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        #generateBtn:hover {
+            background-color: #27ae60;
+        }
+        
+        #printBtn {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        #printBtn:hover {
+            background-color: #2980b9;
+        }
+        
+        #resetBtn {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        #resetBtn:hover {
+            background-color: #c0392b;
+        }
+        
+        .preview-section {
+            margin-top: 40px;
+            padding: 20px;
+            border: 1px dashed #ccc;
+            border-radius: 8px;
+            background-color: #fefefe;
+        }
+        
+        .preview-header {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .preview-content {
+            line-height: 1.8;
+        }
+        
+        .signature-area {
+            margin-top: 40px;
+            text-align: right;
+        }
+        
+        .request-options {
+            margin: 15px 0;
+        }
+        
+        .request-option {
+            margin-bottom: 10px;
+        }
+        
+        .custom-text-section {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        /* Print styles for plain text PDF */
+        @media print {
+            body * {
+                visibility: hidden;
+                background: white !important;
+                color: black !important;
+            }
+            .preview-section, .preview-section * {
+                visibility: visible;
+                background: white !important;
+                color: black !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+            .preview-section {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            .button-group, .form-section, header, .preview-header {
+                display: none;
+            }
+            .preview-content {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+            .preview-content p, .preview-content ul, .preview-content ol {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>पुलिस शिकायत पत्र</h1>
+            <p class="subtitle">Police Complaint Form - Khuldabad, Prayagraj (Allahabad), Uttar Pradesh</p>
+        </header>
+        
+        <form id="complaintForm">
+            <div class="form-section">
+                <h2>शिकायतकर्ता का विवरण</h2>
+                
+                <div class="form-group">
+                    <label for="complainantName">नाम</label>
+                    <input type="text" id="complainantName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fatherHusbandName">पिता/पति का नाम</label>
+                    <input type="text" id="fatherHusbandName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">उम्र</label>
+                    <input type="number" id="age" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">पता</label>
+                    <textarea id="address" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mobile">मोबाइल नंबर</label>
+                    <input type="tel" id="mobile" required>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>शिकायत का विवरण</h2>
+                
+                <div class="form-group">
+                    <label for="incidentType">अपराध/घटना का प्रकार</label>
+                    <select id="incidentType" required>
+                        <option value="">-- चुनें --</option>
+                        <option value="चोरी">चोरी (Theft)</option>
+                        <option value="डकैती">डकैती (Robbery)</option>
+                        <option value="छिनतई">छिनतई (Snatching)</option>
+                        <option value="उत्पीड़न">उत्पीड़न (Harassment)</option>
+                        <option value="लूटमार">लूटमार (Looting)</option>
+                        <option value="उपद्रव">अज्ञात लोगों/युवकों द्वारा उपद्रव (Hooliganism)</option>
+                        <option value="जोर जबरदस्ती">जोर जबरदस्ती (Forceful intimidation)</option>
+                        <option value="शोरगुल">शोरगुल/अनाधिकृत जमावड़ा (Noise pollution)</option>
+                        <option value="संदिग्ध गतिविधि">संदिग्ध गतिविधि (Suspicious activity)</option>
+                        <option value="अन्य">अन्य (Other)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="otherIncidentType">यदि अन्य, तो विवरण दें</label>
+                    <input type="text" id="otherIncidentType">
+                </div>
+                
+                <div class="form-group">
+                    <label for="incidentLocation">घटना का स्थान</label>
+                    <input type="text" id="incidentLocation" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="incidentDate">घटना की तारीख</label>
+                    <input type="date" id="incidentDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="incidentTime">घटना का समय</label>
+                    <input type="time" id="incidentTime" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="incidentDetails">घटना का विस्तृत विवरण</label>
+                    <textarea id="incidentDetails" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>यदि कोई सबूत/गवाह हों</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="evidenceCCTV">
+                            <label for="evidenceCCTV">सीसीटीवी फुटेज उपलब्ध है</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="evidenceWitness">
+                            <label for="evidenceWitness">गवाह मौजूद हैं</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="evidenceOther">
+                            <label for="evidenceOther">अन्य सबूत</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="witnessDetails">गवाहों/सबूत का विवरण</label>
+                    <textarea id="witnessDetails"></textarea>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>आपसे निवेदन</h2>
+                
+                <div class="form-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="includeStandardText" checked>
+                        <label for="includeStandardText">मानक पाठ शामिल करें: "महोदय, उपरोक्त घटना/अपराध से हमारे पूरे इलाके में डर और असुरक्षा का माहौल बना हुआ है। स्थानीय निवासी, विशेषकर बुजुर्ग, महिलाएं और बच्चे, अपनी सुरक्षा को लेकर अत्यंत चिंतित हैं।"</label>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="customTextSection">
+                    <label for="customRequestText">अपना कस्टम पाठ जोड़ें (वैकल्पिक)</label>
+                    <textarea id="customRequestText" placeholder="यहाँ अपना कस्टम पाठ टाइप करें..."></textarea>
+                </div>
+                
+                <p>कृपया नीचे दिए गए विकल्पों में से अपने अनुरोध चुनें:</p>
+                
+                <div class="request-options">
+                    <div class="request-option">
+                        <input type="checkbox" id="request1" checked>
+                        <label for="request1">दोषियों के खिलाफ उचित कानूनी कार्रवाई की जाए।</label>
+                    </div>
+                    <div class="request-option">
+                        <input type="checkbox" id="request2" checked>
+                        <label for="request2">हमारे इलाके में पुलिस की गश्त (Patrolling) बढ़ाई जाए।</label>
+                    </div>
+                    <div class="request-option">
+                        <input type="checkbox" id="request3" checked>
+                        <label for="request3">हम नागरिकों को सुरक्षा और न्याय प्रदान करने की कृपा करें।</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button type="button" id="generateBtn">शिकायत पत्र बनाएं</button>
+                <button type="button" id="printBtn">प्रिंट करें / PDF</button>
+                <button type="reset" id="resetBtn">रिसेट करें</button>
+            </div>
+        </form>
+        
+        <div class="preview-section" id="previewSection" style="display: none;">
+            <div class="preview-header">
+                <h2>शिकायत पत्र का पूर्वावलोकन</h2>
+                <p>Preview of Complaint Letter</p>
+            </div>
+            
+            <div class="preview-content" id="previewContent">
+                <!-- Preview content will be generated here -->
+            </div>
+            
+            <div class="signature-area">
+                <p>स्थान: <span id="previewLocation">खुल्दाबाद, प्रयागराज</span></p>
+                <p>दिनांक: <span id="previewDate"></span></p>
+                <br><br>
+                <p>भवदीय,</p>
+                <p>हस्ताक्षर: ________________</p>
+                <p>नाम: <span id="previewName"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            generatePreview();
+        });
+        
+        document.getElementById('printBtn').addEventListener('click', function() {
+            window.print();
+        });
+        
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            document.getElementById('previewSection').style.display = 'none';
+        });
+        
+        // Toggle custom text section based on standard text checkbox
+        document.getElementById('includeStandardText').addEventListener('change', function() {
+            document.getElementById('customTextSection').style.display = 
+                this.checked ? 'block' : 'block'; // Always show custom text option
+        });
+        
+        function generatePreview() {
+            // Get form values
+            const name = document.getElementById('complainantName').value;
+            const fatherHusbandName = document.getElementById('fatherHusbandName').value;
+            const age = document.getElementById('age').value;
+            const address = document.getElementById('address').value;
+            const mobile = document.getElementById('mobile').value;
+            
+            let incidentType = document.getElementById('incidentType').value;
+            if (incidentType === 'अन्य') {
+                incidentType = document.getElementById('otherIncidentType').value;
+            }
+            
+            const incidentLocation = document.getElementById('incidentLocation').value;
+            const incidentDate = formatDate(document.getElementById('incidentDate').value);
+            const incidentTime = document.getElementById('incidentTime').value;
+            const incidentDetails = document.getElementById('incidentDetails').value;
+            
+            const evidenceCCTV = document.getElementById('evidenceCCTV').checked;
+            const evidenceWitness = document.getElementById('evidenceWitness').checked;
+            const evidenceOther = document.getElementById('evidenceOther').checked;
+            const witnessDetails = document.getElementById('witnessDetails').value;
+            
+            // Get selected requests
+            const request1 = document.getElementById('request1').checked;
+            const request2 = document.getElementById('request2').checked;
+            const request3 = document.getElementById('request3').checked;
+            
+            // Get standard text option
+            const includeStandardText = document.getElementById('includeStandardText').checked;
+            const customRequestText = document.getElementById('customRequestText').value;
+            
+            // Generate evidence text
+            let evidenceText = '';
+            if (evidenceCCTV) evidenceText += 'सीसीटीवी फुटेज उपलब्ध है। ';
+            if (evidenceWitness) evidenceText += 'गवाह मौजूद हैं। ';
+            if (evidenceOther) evidenceText += 'अन्य सबूत उपलब्ध हैं। ';
+            if (witnessDetails) evidenceText += 'गवाहों/सबूत का विवरण: ' + witnessDetails;
+            
+            // Generate requests text
+            let requestsHTML = '';
+            if (request1 || request2 || request3) {
+                requestsHTML = '<ol>';
+                if (request1) requestsHTML += '<li>दोषियों के खिलाफ उचित कानूनी कार्रवाई की जाए।</li>';
+                if (request2) requestsHTML += '<li>हमारे इलाके में <strong>पुलिस की गश्त (Patrolling)</strong> बढ़ाई जाए।</li>';
+                if (request3) requestsHTML += '<li>हम नागरिकों को सुरक्षा और न्याय प्रदान करने की कृपा करें।</li>';
+                requestsHTML += '</ol>';
+            }
+            
+            // Generate standard text if selected
+            let standardTextHTML = '';
+            if (includeStandardText) {
+                standardTextHTML = '<p>महोदय, उपरोक्त घटना/अपराध से हमारे पूरे इलाके में <strong>डर और असुरक्षा का माहौल</strong> बना हुआ है। स्थानीय निवासी, विशेषकर बुजुर्ग, महिलाएं और बच्चे, अपनी सुरक्षा को लेकर अत्यंत चिंतित हैं।</p>';
+            }
+            
+            // Generate custom text if provided
+            let customTextHTML = '';
+            if (customRequestText) {
+                customTextHTML = '<p>' + customRequestText + '</p>';
+            }
+            
+            // Create preview content
+            const previewHTML = `
+                <p><strong>विषय:</strong> ${incidentType} के संबंध में शिकायत पत्र।</p>
+                
+                <p>सेवा में,<br>
+                <strong>थाना प्रभारी महोदय,</strong><br>
+                <strong>पुलिस थाना: खुल्दाबाद</strong><br>
+                <strong>प्रयागराज, उत्तर प्रदेश - 211003</strong></p>
+                
+                <p>महोदय,</p>
+                
+                <p><strong>1. शिकायतकर्ता का विवरण:</strong></p>
+                <ul>
+                    <li>नाम: ${name}</li>
+                    <li>पिता/पति का नाम: ${fatherHusbandName}</li>
+                    <li>उम्र: ${age}</li>
+                    <li>पता: ${address}</li>
+                    <li>मोबाइल नंबर: ${mobile}</li>
+                </ul>
+                
+                <p><strong>2. शिकायत का विवरण:</strong></p>
+                <p>मैं आपके थाना क्षेत्र के "<strong>${incidentLocation}</strong>" क्षेत्र का निवासी हूं। मैं आपके ध्यान में निम्नलिखित गंभीर समस्या/घटना/अपराध की सूचना लाना चाहता/चाहती हूं:</p>
+                
+                <ul>
+                    <li><strong>घटना/अपराध का प्रकार:</strong> ${incidentType}</li>
+                    <li><strong>घटना का स्थान:</strong> ${incidentLocation}</li>
+                    <li><strong>घटना की तारीख एवं समय:</strong> ${incidentDate}, समय: ${incidentTime}</li>
+                </ul>
+                
+                <p><strong>घटना का विस्तृत विवरण:</strong><br>
+                ${incidentDetails}</p>
+                
+                <p><strong>यदि कोई सबूत/गवाह हों:</strong><br>
+                ${evidenceText || 'कोई सबूत उपलब्ध नहीं है।'}</p>
+                
+                <p><strong>3. आपसे निवेदन:</strong></p>
+                ${standardTextHTML}
+                ${customTextHTML}
+                
+                <p>अतः मेरा आपसे विनम्र निवेदन है कि इस मामले की तुरंत जांच करवाकर:</p>
+                ${requestsHTML}
+                
+                <p>आशा है, आप इस गंभीर मामले में शीघ्र हस्तक्षेप करेंगे।</p>
+                
+                <p>धन्यवाद सहित।</p>
+            `;
+            
+            // Update preview content
+            document.getElementById('previewContent').innerHTML = previewHTML;
+            document.getElementById('previewName').textContent = name;
+            document.getElementById('previewDate').textContent = getCurrentDate();
+            
+            // Show preview section
+            document.getElementById('previewSection').style.display = 'block';
+            
+            // Scroll to preview
+            document.getElementById('previewSection').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
+        
+        function getCurrentDate() {
+            const now = new Date();
+            const day = now.getDate();
+            const month = now.getMonth() + 1;
+            const year = now.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
+    </script>
+</body>
+</html>
